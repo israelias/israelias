@@ -23,7 +23,7 @@ class ReadMe:
             I was a design architect with {large_firms} in {big_cities}.
             """.format(large_firms=experience[0], big_cities=experience[1])
 
-        elif now = today:
+        elif now == today:
             dream = self.education['programming']
             return """
             I am currently learning {code} at {code_institute}.
