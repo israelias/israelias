@@ -1,6 +1,6 @@
 ```python
 class ReadMe:
-    def __init__(self, username="israelias", year=2021):
+    def __init__(self, username="israelias", year=2022):
         self.username = username
         self.name = 'Joem Elias Sanez'
         self.education = {
@@ -9,12 +9,13 @@ class ReadMe:
             'art': ['Bachelor of Fine Arts', 'Otis College of Art and Design']
         }
         self.employment = {
-            'developer': ['company', 'city'],
+            'engineer': ['ResultsCX', ['Manila', 'Fort Lauderdale']],
             'architect': ['Foster + Partners', ['Singapore', 'New York']],
             'designer': ['Herzog & de Meuron', ['New York', 'Basel']],
+            'all of the above': ['you', ['projects', 'anywhere']],
         }
 
-    def doing(self, now=2020):
+    def doing(self, now=2022):
         today = self.year
 
         if now < today:
@@ -24,16 +25,16 @@ class ReadMe:
             """.format(large_firms=experience[0], big_cities=experience[1])
 
         elif now == today:
-            dream = self.education['programming']
+            dream = self.employment['engineer']
             return """
-            I am currently learning {code} at {code_institute}.
-            """.format(code=dream[0], code_institute=dream[1])
+            I am currently in Application Development for {tech_enabled_services} in {remote_settings}.
+            """.format(tech_enabled_services=dream[0], remote_settings=dream[1])
 
         elif now > today:
-            goal = self.employment['developer']
+            goal = self.employment['all of the above']
             return """
-            I am eager to collaborate with {teams} on {projects}.
-            """.format(teams=goal[0], projects='software development')
+            I am eager to collaborate with {teams} on {projects} {everwhere}.
+            """.format(teams=goal[0], projects=goal[1][0], everwhere=goal[1][1])
         else:
             return """
             ### Hi there 👋
