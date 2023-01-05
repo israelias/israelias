@@ -1,6 +1,5 @@
-```python
 class ReadMe:
-    def __init__(self, username="israelias", year=2022):
+    def __init__(self, username="israelias", year=2021):
         self.username = username
         self.year = year
         self.name = 'Joem Elias Sanez'
@@ -10,13 +9,13 @@ class ReadMe:
             'art': ['Bachelor of Fine Arts', 'Otis College of Art and Design']
         }
         self.employment = {
-            'engineer': ['ResultsCX', ['Manila', 'Fort Lauderdale']],
+            'developer': ['companies', 'cities'],
             'architect': ['Foster + Partners', ['Singapore', 'New York']],
             'designer': ['Herzog & de Meuron', ['New York', 'Basel']],
             'all of the above': ['you', ['projects', 'anywhere']],
         }
 
-    def doing(self, now=2023):
+    def doing(self, now=2021):
         today = self.year
 
         if now < today:
@@ -26,24 +25,26 @@ class ReadMe:
             """.format(large_firms=experience[0], big_cities=experience[1][0])
 
         elif now == today:
-            dream = self.employment['engineer']
+            dream = self.education['programming']
             return """
-            I am currently in Application Development for {tech_enabled_services} in {remote_settings}.
-            """.format(tech_enabled_services=dream[0], remote_settings=dream[1][0])
+            I am currently learning {code} at {code_institute}.
+            """.format(code=dream[0], code_institute=dream[1])
 
         elif now > today:
-            goal = self.employment['all of the above']
+            goal = self.employment['developer']
             return """
-            I am eager to collaborate with {teams} on {projects} {everywhere}.
-            """.format(teams=goal[0], projects=goal[1][0], everywhere=goal[1][1])
+            I am eager to collaborate with {teams} on {projects}.
+            """.format(teams=goal[0], projects='software development')
         else:
             return """
             ### Hi there 👋
             """
-        
+
     def collaborate(self, role, organization, location):
         opportunity = self.employment
         opportunity[role] = [organization, location]
 
-me = ReadMe(2022)
-```
+
+me = ReadMe(2021)
+
+print(me.doing(2023))
