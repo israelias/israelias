@@ -1,38 +1,48 @@
-class ReadMe ( var year: Int = 2023) {
-  val username: String = "israelias"
-  private var education: Map[String, Map[String, String]] = Map(
-      "programming" -> Map(
-        "Software Development" -> "Code Institute"
-      ),
-      "architecture" -> Map(
-        "Master of Architecture" -> "Columbia University"
-      ),
-      "art" -> Map(
-        "Bachelor of Fine Arts" -> "Otis College of Art and Design"
-      )
-    )
+class ReadMe(val username: String = "israelias", val year: Int = 2022) {
+  val name: String = "Joem Elias Sanez"
+  val education: Map[String, List[String]] = Map(
+    "programming" -> List("Full Stack Software Development", "Code Institute"),
+    "architecture" -> List("Master of Architecture", "Columbia University"),
+    "art" -> List("Bachelor of Fine Arts", "Otis College of Art and Design")
+  )
+  val employment: Map[String, List[Any]] = Map(
+    "engineer" -> List("ResultsCX", List("Manila", "Fort Lauderdale")),
+    "architect" -> List("Foster + Partners", List("Singapore", "New York")),
+    "designer" -> List("Herzog & de Meuron", List("New York", "Basel")),
+    "all of the above" -> List("you", List("projects", "anywhere"))
+  )
 
-  def doing(now: Int): Unit =
-    if (year < now)
-      val experience = education.get("programming")
-      println(experience)
-    else if (year == now)
-      val dream = education.get("programming")
-      println(dream)
-    else if (year > now)
-      val goal = education.get("programming")
-      println(goal)
-    else
-      println("Hello!")
+  def doing(now: Int = 2023): String = {
+    val today = year
 
+    if (now < today) {
+      val experience = employment("architect").asInstanceOf[List[Any]]
+      s"""
+      I was a design architect with ${experience.head} in ${experience(1).asInstanceOf[List[String]].head}.
+      """
+    } else if (now == today) {
+      val dream = employment("engineer")
+      s"""
+      I am currently in Application Development for ${dream.head} in ${dream(1).asInstanceOf[List[String]].head}.
+      """
+    } else if (now > today) {
+      val goal = employment("all of the above")
+      s"""
+      I am eager to collaborate with ${goal.head} on ${goal(1).asInstanceOf[List[String]].head} ${goal(1).asInstanceOf[List[String]](1)}.
+      """
+    } else {
+      """
+      ### Hi there 👋
+      """
+    }
+  }
 
-//  val attrs = List(ReadMe("foo", 1), ReadMe("bar", 2))
-//  val edu = List
-//  val employment:Map[String,Int] = list.map(org => (attrs.prop1, attrs.prop2))(collection.breakOut)
-
+  def collaborate(role: String, organization: String, location: List[String]): Unit = {
+    employment + (role -> List(organization, location))
+  }
 }
 
-object Me extends App {
-  private val me = ReadMe(2023)
-  me.doing(2023)
+object Main extends App {
+  val me = new ReadMe(2022)
+  println(me.doing(2023))
 }
